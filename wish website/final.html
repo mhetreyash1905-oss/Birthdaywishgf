@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Message For You 💌</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg,
+                    #ffd1dc 0%,
+                    #e6e6fa 25%,
+                    #ffefd5 50%,
+                    #e6e6fa 75%,
+                    #ffd1dc 100%);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            color: #4a4a4a;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Floating Hearts styling */
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Glassmorphism Card */
+        .card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 24px;
+            padding: 3.5rem 2.5rem;
+            max-width: 650px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            z-index: 10;
+            position: relative;
+            transform: translateY(30px);
+            opacity: 0;
+            animation: slideUpFade 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes slideUpFade {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.2rem;
+            color: #ff69b4;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 1.8rem;
+            font-weight: 450;
+            color: #555;
+            text-align: justify;
+        }
+
+        p strong {
+            color: #ff69b4;
+            font-weight: 600;
+        }
+
+        .heart-divider {
+            font-size: 1.5rem;
+            color: #ff69b4;
+            margin: 1.5rem 0;
+            animation: heartbeat 2s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        .back-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff69b4, #ff99cc);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.8rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .card {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.6;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>What's in My Heart... 💌</h1>
+
+        <p><strong>Deepika,</strong> I want to say I am truly sorry for the times I didn't put enough effort into us.
+            You deserve to feel like the most special person in the world, and it hurts me to know if I ever made you
+            feel otherwise or fell short of what you deserved.</p>
+
+        <p>My heart's deepest wish is to return to you, to sort things out, and to rebuild our beautiful bond together.
+            I miss you and I miss us.</p>
+
+        <div class="heart-divider">💖</div>
+
+        <p>But I also want you to know—and I hope you understand—that I truly did put effort in too. Making you feel
+            special was never about doing the bare minimum for me. I did my absolute best to show you how much you mean
+            to me, even when things got hard or when I couldn't express it perfectly.</p>
+
+        <p>Yet, I know that love and partnership must be mutual. Even after saying all this, if you don't wish to sort
+            things out and come together again, please know that it is entirely your choice, and I will completely
+            respect it.</p>
+
+        <p>I want you to be happy, Deepika. Whether that happiness is with me or without me, I will always want the best
+            for you. Because in my heart, you will always be special, and I will always cherish the time we had
+            together.</p>
+
+        <p>As you know i respect your cconsent so this final consent is yours . the time i spent with you was the best
+            for me</p>
+
+        <p>Bye</p>
+
+        <p>Take care</p>
+
+        <p>I love you </p>
+
+        <p>hope you recieve most love and efforts the way you want</p>
+
+
+        <button class="back-btn" id="backBtn">Back to Memories 💕</button>
+    </div>
+
+    <script>
+        // Fade in body on load
+        window.onload = () => {
+            document.body.style.opacity = '1';
+        };
+
+        // Floating Hearts
+        const hearts = ['💖', '💗', '💕', '💓', '💝', '💘', '💞', '❤️', '🩷', '♥️', '🤍', '💜', '🧡'];
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.bottom = '-50px';
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '2';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.animation = `floatUp ${Math.random() * 5 + 5}s linear forwards`;
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 10000);
+        }
+        setInterval(createHeart, 800);
+
+        // Back button transition
+        document.getElementById('backBtn').addEventListener('click', () => {
+            document.body.style.transition = 'opacity 1s ease';
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                window.location.href = 'last.html';
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>

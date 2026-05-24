@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Beautiful Memories ✨</title>
+    <link rel="preload" href="milk-and-mocha-bear-couple.gif" as="image">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .floating-emoji {
+            position: fixed;
+            pointer-events: none;
+            z-index: 2;
+            animation: floatUp var(--duration, 6s) linear forwards;
+            opacity: 0.8;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg,
+                    #ffd1dc 0%,
+                    #e6e6fa 25%,
+                    #ffefd5 50%,
+                    #e6e6fa 75%,
+                    #ffd1dc 100%);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+            color: #4a4a4a;
+        }
+
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Enhanced Sparkle Effect */
+        .magic-sparkles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: white;
+            animation: twinkle var(--duration, 4s) ease-in-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+        }
+
+        .magic-sparkles::before,
+        .magic-sparkles::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, white 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: sparkleLayer 8s linear infinite;
+            opacity: 0.5;
+        }
+
+        .magic-sparkles::after {
+            animation-delay: -4s;
+            transform: rotate(45deg);
+        }
+
+        @keyframes sparkleLayer {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-50px);
+            }
+        }
+
+        /* Floating Hearts */
+        .floating-hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 1.5rem;
+            color: rgba(255, 105, 180, 0.6);
+            animation: floatHeart var(--float-duration, 6s) ease-in-out infinite;
+            animation-delay: var(--delay, 0s);
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translate(0, 100vh) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(var(--translate-x, 0), -100vh) rotate(360deg);
+            }
+        }
+
+        /* Welcome Section */
+        .welcome {
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 3;
+        }
+
+        .welcome h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #ff69b4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeInScale 2s ease;
+        }
+
+        .welcome p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 1.5rem auto;
+            line-height: 1.6;
+            animation: fadeIn 2s ease 0.5s both;
+        }
+
+        /* Enhanced Memory Cards */
+        .memory-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            z-index: 3;
+            position: relative;
+        }
+
+        .memory-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .memory-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transform: translateX(-100%);
+            transition: 0.5s;
+        }
+
+        .memory-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .memory-img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            transition: transform 0.5s ease;
+        }
+
+        .memory-card:hover .memory-img {
+            transform: scale(1.05);
+        }
+
+        .memory-date {
+            font-family: 'Dancing Script', cursive;
+            color: #ff69b4;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .memory-caption {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #666;
+        }
+
+        /* Final Message Section */
+        .final-message {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            margin-top: 3rem;
+            position: relative;
+            z-index: 3;
+        }
+
+        .final-message h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #ff69b4;
+            margin-bottom: 2rem;
+            animation: heartbeat 2s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .final-message p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .goodbye-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff69b4, #ff99cc);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .goodbye-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Generate Hearts */
+        .js-generate-hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #ff69b4, #da70d6);
+            border-radius: 6px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .welcome h1 {
+                font-size: 3rem;
+            }
+
+            .memory-container {
+                grid-template-columns: 1fr;
+            }
+
+            .final-message h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="magic-sparkles"></div>
+    <div class="floating-hearts">
+        <div class="heart" style="--float-duration: 5s; --delay: 0s; --translate-x: 20px; left: 5%;">💝</div>
+        <div class="heart" style="--float-duration: 7s; --delay: 0.5s; --translate-x: -30px; left: 15%;">💖</div>
+        <div class="heart" style="--float-duration: 6s; --delay: 1s; --translate-x: 40px; left: 25%;">💗</div>
+        <div class="heart" style="--float-duration: 8s; --delay: 1.5s; --translate-x: -20px; left: 35%;">💓</div>
+        <div class="heart" style="--float-duration: 5.5s; --delay: 2s; --translate-x: 30px; left: 45%;">💕</div>
+        <div class="heart" style="--float-duration: 9s; --delay: 0.3s; --translate-x: -15px; left: 55%;">💘</div>
+        <div class="heart" style="--float-duration: 6.5s; --delay: 2.5s; --translate-x: 25px; left: 65%;">💞</div>
+        <div class="heart" style="--float-duration: 7.5s; --delay: 1.2s; --translate-x: -35px; left: 75%;">❤️</div>
+        <div class="heart" style="--float-duration: 8.5s; --delay: 3s; --translate-x: 10px; left: 85%;">🩷</div>
+        <div class="heart" style="--float-duration: 6s; --delay: 0.8s; --translate-x: -25px; left: 95%;">♥️</div>
+        <div class="heart" style="--float-duration: 5s; --delay: 1.8s; --translate-x: 35px; left: 10%;">🤍</div>
+        <div class="heart" style="--float-duration: 7s; --delay: 2.2s; --translate-x: -40px; left: 50%;">💜</div>
+    </div>
+
+    <section class="welcome">
+        <h1>Our Beautiful Moments Together</h1>
+        <p>Some people walk into your life and leave footprints on your heart that never fade. You, Deepika, are one of
+            those rare souls. Every moment we've shared — every laugh, every late-night conversation, every silly inside
+            joke — has become a memory I hold so close to my heart. Let me take you down memory lane... 💫</p>
+    </section>
+
+    <div class="memory-container">
+        <!-- Row 1 -->
+        <div class="memory-card">
+            <img src="./d1.jpg" alt="Her Beautiful Smile" class="memory-img">
+            <div class="memory-date">That Smile That Fixes Everything 💫</div>
+            <div class="memory-caption">This smile right here? This is the one that can turn anyone's bad day into a
+                good one. You carry so much warmth in those eyes, and every time I see you happy, it genuinely makes my
+                heart feel lighter. Never lose this glow, Deepika — it's your superpower, and the world needs every bit
+                of it. ❤️</div>
+        </div>
+        <div class="memory-card">
+            <img src="./d2.jpg" alt="Together Always" class="memory-img">
+            <div class="memory-date">A Bond That Feels Like Home 🏡</div>
+            <div class="memory-caption">Being with you simply feels like home. That's exactly what our relationship is.
+                Through all the ups and downs, the late-night talks and the random bursts of laughter, you've been my
+                constant source of comfort and joy. I don't say it enough, but I love you more than words can express.
+                Here's to us, always and forever. 😊💕</div>
+        </div>
+        <div class="memory-card">
+            <img src="./d3.jpg" alt="Beautiful Soul" class="memory-img">
+            <div class="memory-date">The Prettiest Soul I Know 🌸</div>
+            <div class="memory-caption">You have this rare and beautiful gift of making everyone around you feel seen,
+                heard, and appreciated. Your soul is genuinely one of the prettiest things about you, and I hope you
+                never, ever forget how truly special you are. Keep blooming, keep shining, keep being unapologetically
+                you — because the world is so much better with you in it. 🌸💖</div>
+        </div>
+    </div>
+
+    <!-- First Intermission Message -->
+    <section class="final-message">
+        <h2>You Are My Favorite Dream Come True 💕</h2>
+        <p>Before I met you, I didn't know it was possible to look at someone and just feel entirely at peace. You
+            brought so much color into my world, turning ordinary moments into something so incredibly special.</p>
+        <p>I love the way your eyes sparkle when you talk about things you love, and the way you make me feel like I'm
+            exactly where I'm supposed to be. Loving you is the easiest and most beautiful thing I've ever done. 🌹</p>
+    </section>
+
+    <div class="memory-container">
+        <!-- Row 2 -->
+        <div class="memory-card">
+            <img src="./d4.jpg" alt="My Safe Haven" class="memory-img">
+            <div class="memory-date">My Safe Haven 🏡</div>
+            <div class="memory-caption">With you, I finally understand what it means to find a home in a person. Your
+                hugs cure absolutely everything, and just hearing your voice is enough to make my heart calm down. Thank
+                you for being my peace. 💖</div>
+        </div>
+        <div class="memory-card">
+            <img src="./d5.jpg" alt="Adventures With You" class="memory-img">
+            <div class="memory-date">Adventures With You ✈️</div>
+            <div class="memory-caption">Whether we're exploring new places or just doing absolutely nothing together on
+                the couch, it's always the best time because I'm with you. Life is so much more fun with you as my
+                partner in crime! 🌟</div>
+        </div>
+        <div class="memory-card">
+            <img src="./d6.jpg" alt="Your Contagious Laugh" class="memory-img">
+            <div class="memory-date">Your Contagious Laugh 😂</div>
+            <div class="memory-caption">Hearing you laugh is literally my favorite sound in the world. I would do
+                anything just to keep that smile on your face. Your joy is my joy, and seeing you happy means everything
+                to me. ✨</div>
+        </div>
+    </div>
+
+    <!-- Second Intermission Message -->
+    <section class="final-message">
+        <h2>A Love That Only Grows Stronger ✨</h2>
+        <p>Every single day with you feels like a new adventure. We've built so many beautiful memories, but honestly,
+            my favorite part of any day is just getting to exist alongside you.</p>
+        <p>You inspire me to be better, you support me when things are hard, and you celebrate with me when things are
+            great. I am so unbelievably proud to call you mine. 💖</p>
+    </section>
+
+    <div class="memory-container">
+        <!-- Row 3 -->
+        <div class="memory-card">
+            <img src="./d7.jpg" alt="My Biggest Cheerleader" class="memory-img">
+            <div class="memory-date">My Biggest Cheerleader 📣</div>
+            <div class="memory-caption">Thank you for always believing in me, even when I struggle to believe in myself.
+                Your unconditional support and faith in me mean the absolute world. I couldn't do this without you. 💕
+            </div>
+        </div>
+        <div class="memory-card">
+            <img src="./d8.jpg" alt="The Little Things" class="memory-img">
+            <div class="memory-date">The Little Things 🌸</div>
+            <div class="memory-caption">It's the little inside jokes, the knowing glances, and the quiet moments we
+                share that make me fall for you over and over again. Every tiny detail about you is perfect to me. 🌹
+            </div>
+        </div>
+        <div class="memory-card">
+            <img src="./d9.jpg" alt="Looking Towards Forever" class="memory-img">
+            <div class="memory-date">Looking Towards Forever 💍</div>
+            <div class="memory-caption">I can't wait to see what the future holds for us. Whatever it is, as long as I
+                have you by my side, I know it will be absolutely perfect. Here's to forever with my favorite person.
+                🥂✨</div>
+        </div>
+    </div>
+
+    <!-- Final Message and Button -->
+    <section class="final-message">
+        <h2>Thank You for Being You 💖</h2>
+
+        <p>घणी-घणी शुभकामना थारा जन्मदिन री!</p>
+
+        <p>आज थारे जन्मदिन पर एक बात बोलूं—तू दुनिया री सबसे बड़ी 'भोंदू' प्राणी है जकी ने मैं आज तक देख्यो है, पर यकीन
+            मान, तू जितनी भोंदू है, उतनी ही ज्यादा प्यारी और क्यूट भी है।</p>
+
+        <p>तने कदई भी खुद ने लेर इनसिक्योर (insecure) नी होणो चाहिए। मैं तने पूरी तरह से प्यार करूँ हूँ—थारे बाळ (hairs)
+            लेर थारे पग (toe) तक, थारो हर एक हिस्सा मने घणो पसंद है। तू जैसी भी है, एकदम परफेक्ट है।</p>
+
+        <p>मैं तने दिल सूं घणो प्यार करूँ हूँ। म्हारो मन है कि मैं थारे लिए बहुत कुछ करूँ, दुनिया जहान री खुशियां थारे
+            कदमा में ला धरूँ, पर अभी कुछ मजबूरियां है जकी वजह सूं मैं सब कुछ नी कर पा रयूँ हूँ। पर तू कदी भी इन नी सोचिए
+            कि मैं थारे लिए मेहनत नी करणा चाहूँ या थारे लिए कुछ करना नी चाहता। तू म्हारै दिल में घणी खास है और मैं बस
+            थारी खुशियाँ देखणो चाहूँ हूँ।</p>
+        <p>भगवान करे थारो यो जन्मदिन आज तक रो सबसे बेस्ट जन्मदिन बणे। हमेशा खुश रह, मुस्कुराती रह।</p>
+        <div class="btn-group" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 20px;">
+            <button class="goodbye-btn" id="giftBtn" style="margin-top: 0;">Want gift click here</button>
+            <button class="goodbye-btn" id="finalMessageBtn" style="margin-top: 0; background: linear-gradient(45deg, #da70d6, #ba55d3);">One last message... 💌</button>
+        </div>
+    </section>
+
+    <!-- Gift Popup -->
+    <div id="gift-popup"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center;">
+        <div style="max-width: 90%; max-height: 90%; text-align: center;">
+            <img src="milk-and-mocha-bear-couple.gif" alt="Gift GIF"
+                style="max-width: 100%; max-height: 80vh; border-radius: 20px; box-shadow: 0 0 30px rgba(255,105,180,0.8);">
+        </div>
+    </div>
+
+    <div class="js-generate-hearts"></div>
+    <script>
+        const hearts = ['💖', '💗', '💕', '💓', '💝', '💘', '💞', '❤️', '🩷', '♥️', '🤍', '💜', '🧡'];
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.bottom = '-50px';
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '2';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.animation = `float ${Math.random() * 5 + 5}s linear forwards`;
+            document.querySelector('.js-generate-hearts').appendChild(heart);
+            setTimeout(() => heart.remove(), 10000);
+        }
+        setInterval(createHeart, 800);
+
+        // Gift Button Logic
+        document.getElementById('giftBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            const popup = document.getElementById('gift-popup');
+            popup.style.display = 'flex';
+
+            // Burst effect
+            for (let i = 0; i < 300; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.position = 'fixed';
+                heart.style.left = window.innerWidth / 2 + 'px';
+                heart.style.top = window.innerHeight / 2 + 'px';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.pointerEvents = 'none';
+                heart.style.zIndex = 10001;
+                document.body.appendChild(heart);
+
+                const angle = Math.random() * Math.PI * 2;
+                const velocity = 200 + Math.random() * 800;
+                const tx = Math.cos(angle) * velocity;
+                const ty = Math.sin(angle) * velocity;
+
+                heart.animate([
+                    { transform: 'translate(0, 0)', opacity: 1 },
+                    { transform: `translate(${tx}px, ${ty}px)`, opacity: 0 }
+                ], {
+                    duration: 1000 + Math.random() * 1000,
+                    easing: 'ease-out'
+                }).onfinish = () => heart.remove();
+            }
+
+            // Rain effect
+            const rainInterval = setInterval(() => {
+                const heart = document.createElement('div');
+                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.position = 'fixed';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = '-50px';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.pointerEvents = 'none';
+                heart.style.zIndex = 10001;
+                document.body.appendChild(heart);
+
+                heart.animate([
+                    { transform: 'translateY(0) rotate(0)', opacity: 1 },
+                    { transform: `translateY(${window.innerHeight + 100}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                ], {
+                    duration: 2000 + Math.random() * 2000,
+                    easing: 'linear'
+                }).onfinish = () => heart.remove();
+            }, 30);
+
+            // Close after 8 seconds (ensuring at least 5 seconds)
+            const closeTimeout = setTimeout(() => {
+                cleanupPopup();
+            }, 8000);
+
+            const cleanupPopup = () => {
+                clearInterval(rainInterval);
+                popup.style.display = 'none';
+                popup.removeEventListener('click', cleanupPopup);
+                clearTimeout(closeTimeout);
+            };
+            
+            // Allow manual click to close
+            popup.addEventListener('click', cleanupPopup);
+        });
+
+        // Final Message Button Logic
+        document.getElementById('finalMessageBtn').addEventListener('click', () => {
+            document.body.style.transition = 'opacity 1s ease';
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                window.location.href = 'final.html';
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
